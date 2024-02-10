@@ -11,9 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mindr',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
-      ),
+          useMaterial3: true,
+          primaryColor: const Color.fromARGB(255, 4, 73, 129),
+          fontFamily: 'Poppins'),
       home: const Wrapper(),
     );
   }
