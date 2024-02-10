@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mindr/onboarding/view/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primaryColor: const Color.fromARGB(255, 4, 73, 129),
           fontFamily: 'Poppins'),
-      home: const Wrapper(),
+      home: const Onboarding(),
     );
   }
 }
