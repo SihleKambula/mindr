@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({super.key});
@@ -9,9 +10,15 @@ class Onboarding extends StatefulWidget {
 }
 
 class _OnboardingState extends State<Onboarding> {
-  // functions to navigate to auth screen
+  late SharedPreferences _preferences;
+  final String key = 'onboarding';
+
+//Upon complete
   void _onIntroEnd(context) {
-    // ignore: avoid_print
+    Future<void> _saveData() async {
+      await _preferences.setString(key, 'Hello, Local Storage!');
+    }
+
     print('Done');
   }
 
