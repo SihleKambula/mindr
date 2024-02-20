@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Onboarding extends StatefulWidget {
-  const Onboarding({super.key});
+  final dynamic saveData;
+  const Onboarding({super.key, required this.saveData});
 
   @override
   State<Onboarding> createState() => _OnboardingState();
 }
 
 class _OnboardingState extends State<Onboarding> {
-  late SharedPreferences _preferences;
-  final String key = 'onboarding';
-
 //Upon complete
-  void _onIntroEnd(context) {
-    Future<void> _saveData() async {
-      await _preferences.setString(key, 'Hello, Local Storage!');
-    }
-
-    print('Done');
+  void _onIntroEnd(context) async {
+    widget.saveData();
+    context.go('/wrapper');
   }
 
   //image builder
