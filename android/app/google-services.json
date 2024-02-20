@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "312257876872",
+    "project_id": "mindr-407919",
+    "storage_bucket": "mindr-407919.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312257876872:android:ecd1cb9f76e638d0ca203d",
+        "android_client_info": {
+          "package_name": "com.example.mindr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312257876872-60jp50m15s18m8b9odejbnp6qb653mdn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mindr",
+            "certificate_hash": "d2d48a6bc0ebdb7e33aa8ad1bca55509f394ec2a"
+          }
+        },
+        {
+          "client_id": "312257876872-m1ijqmmcg2m18kglesmddbmnjipe50fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfNU9veoL-kt7B9LMkeOmoDO2UdjU5chU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312257876872-m1ijqmmcg2m18kglesmddbmnjipe50fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
