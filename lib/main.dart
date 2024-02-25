@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mindr/wrapper.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+
+//Screens
+import 'package:mindr/app/home_screen/view/home_screen.dart';
+import 'package:mindr/auth/signup/view/signup_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +25,6 @@ class Mindr extends StatelessWidget {
     final router = GoRouter(
       routes: [
         GoRoute(path: '/', builder: (context, state) => const App()),
-        GoRoute(
-            path: '/wrapper', builder: ((context, state) => const Wrapper()))
       ],
     );
 
@@ -38,16 +40,21 @@ class Mindr extends StatelessWidget {
   }
 }
 
-class App extends StatefulWidget {
+class App extends StatelessWidget {
   const App({super.key});
 
   @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
-  @override
   Widget build(BuildContext context) {
-    return const Wrapper();
+    return Scaffold(
+        body: StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return const HomeScreen();
+        } else {
+          return const SignUpScreen();
+        }
+      },
+    ));
   }
 }
