@@ -32,6 +32,7 @@ flutter:
     - assets/images/calendar.png
     - assets/images/notes.png
     - assets/images/reminder.png
+    - assets/images/icons/google.png
 
   fonts:
     - family: Poppins
