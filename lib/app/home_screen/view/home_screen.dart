@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,14 +18,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: ElevatedButton(
-        onPressed: () {
-          logout();
-          print('Out');
-        },
-        child: Text('Log out'),
-      )),
+      body: Column(children: [
+        ElevatedButton(
+          onPressed: () {
+            logout();
+            print('Out');
+          },
+          child: Text('Log out'),
+        ),
+      ]),
     );
   }
 }

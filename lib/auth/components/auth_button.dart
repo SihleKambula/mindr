@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
   final String buttonName;
-  const AuthButton({super.key, required this.buttonName});
+  final dynamic authFunction;
+  const AuthButton(
+      {super.key, required this.buttonName, required this.authFunction});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Siging up');
+        authFunction();
       },
       child: Container(
         padding: const EdgeInsets.all(20),

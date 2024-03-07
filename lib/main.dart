@@ -2,7 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'firebase_options.dart';
+import 'package:provider/provider.dart';
 
 //Screens
 import 'package:mindr/app/home_screen/view/home_screen.dart';
@@ -16,6 +18,7 @@ Future<void> main() async {
   runApp(const Mindr());
 }
 
+// Mindr
 class Mindr extends StatelessWidget {
   const Mindr({super.key});
 
@@ -28,14 +31,17 @@ class Mindr extends StatelessWidget {
       ],
     );
 
-    return MaterialApp.router(
-      title: 'Mindr',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          useMaterial3: true,
-          primaryColor: const Color.fromARGB(255, 4, 73, 129),
-          fontFamily: 'Poppins'),
-      routerConfig: router,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => SignUpAuth())],
+      child: MaterialApp.router(
+        title: 'Mindr',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            useMaterial3: true,
+            primaryColor: const Color.fromARGB(255, 4, 73, 129),
+            fontFamily: 'Poppins'),
+        routerConfig: router,
+      ),
     );
   }
 }

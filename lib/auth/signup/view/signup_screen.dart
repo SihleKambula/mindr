@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:mindr/auth/components/auth_button.dart';
 
 import 'package:mindr/auth/components/custom_text_field.dart';
@@ -22,6 +24,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     passwordController.dispose();
     confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  void signupUser() {
+    if (passwordController.text.isNotEmpty &&
+        passwordController.text == confirmPasswordController.text) {
+      Provider.of<SignUpAuth>(context, listen: false)
+          .signUpWithEmailAndPassword(
+              emailController.text, passwordController.text);
+    }
+    //todo return rejection to user
+    print('passwords do not match');
   }
 
   @override
@@ -103,8 +116,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const AuthButton(
+                  AuthButton(
                     buttonName: 'Sign up',
+                    authFunction: signupUser,
                   ),
                   const SizedBox(
                     height: 20,
