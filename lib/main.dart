@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mindr/auth/login/view/loginScreen.dart';
+import 'package:mindr/auth/login/viewmodal/login_controller.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,10 @@ class Mindr extends StatelessWidget {
     );
 
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => SignUpAuth())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => SignUpAuth()),
+        ChangeNotifierProvider(create: (_) => LoginAuth()),
+      ],
       child: MaterialApp.router(
         title: 'Mindr',
         debugShowCheckedModeBanner: false,

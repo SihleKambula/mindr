@@ -1,6 +1,7 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
+import 'package:mindr/auth/login/viewmodal/login_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:mindr/auth/components/auth_button.dart';
 
@@ -28,8 +29,10 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void signupUser() {
-    //todo return rejection to user
-    print('passwords do not match');
+    if (passwordController.text.isNotEmpty && emailController.text.isNotEmpty) {
+      Provider.of<LoginAuth>(context, listen: false).loginWithEmailAndPassword(
+          emailController.text, passwordController.text);
+    }
   }
 
   @override
