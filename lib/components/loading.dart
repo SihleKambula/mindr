@@ -8,9 +8,9 @@ class Loading extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-          child: SpinKitCubeGrid(
+          child: SpinKitFadingCube(
         color: Color.fromARGB(255, 2, 88, 158),
-        size: 60.0,
+        size: 50.0,
       )),
     );
   }
