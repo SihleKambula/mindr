@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mindr/auth/auth_main.dart';
 import 'package:mindr/auth/login/view/loginScreen.dart';
 import 'package:mindr/auth/login/viewmodal/login_controller.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
@@ -30,10 +31,6 @@ class Mindr extends StatelessWidget {
     final router = GoRouter(
       routes: [
         GoRoute(path: '/', builder: (context, state) => const App()),
-        GoRoute(
-            path: '/login', builder: (context, state) => const LoginScreen()),
-        GoRoute(
-            path: '/signup', builder: (context, state) => const SignUpScreen()),
       ],
     );
 
@@ -67,7 +64,7 @@ class App extends StatelessWidget {
         if (snapshot.hasData) {
           return const HomeScreen();
         } else {
-          return const SignUpScreen();
+          return const AuthMainScreen();
         }
       },
     ));

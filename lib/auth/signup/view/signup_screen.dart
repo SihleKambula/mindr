@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:mindr/auth/components/auth_button.dart';
@@ -8,7 +7,8 @@ import 'package:mindr/auth/components/custom_text_field.dart';
 import 'package:mindr/auth/components/google_login.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+  final dynamic showLogin;
+  const SignUpScreen({super.key, required this.showLogin});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -109,7 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               color: Color.fromARGB(255, 4, 73, 129)),
                         ),
                         onTap: () {
-                          context.go('/login');
+                          widget.showLogin();
                         },
                       )
                     ],
