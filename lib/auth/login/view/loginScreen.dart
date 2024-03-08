@@ -7,14 +7,14 @@ import 'package:mindr/auth/components/auth_button.dart';
 import 'package:mindr/auth/components/custom_text_field.dart';
 import 'package:mindr/auth/components/google_login.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -28,12 +28,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void signupUser() {
-    if (passwordController.text.isNotEmpty &&
-        passwordController.text == confirmPasswordController.text) {
-      Provider.of<SignUpAuth>(context, listen: false)
-          .signUpWithEmailAndPassword(
-              emailController.text, passwordController.text);
-    }
     //todo return rejection to user
     print('passwords do not match');
   }
@@ -58,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     size: 80,
                   ),
                   Text(
-                    'Welcome to Mindr',
+                    'Welcome back',
                     style: TextStyle(fontSize: 16, color: Colors.grey[700]),
                   ),
                   const SizedBox(
@@ -80,22 +74,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     icon: const Icon(Icons.lock_outline_rounded),
                   ),
                   const SizedBox(
-                    height: 20,
-                  ),
-                  CustomTextField(
-                    controller: confirmPasswordController,
-                    hintText: 'confirm password',
-                    obscureText: true,
-                    icon: const Icon(Icons.lock_clock_outlined),
-                  ),
-                  const SizedBox(
                     height: 8,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const Text(
-                        'Already have an account?',
+                        "Don't have an account?",
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                       const SizedBox(
@@ -103,13 +88,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       InkWell(
                         child: const Text(
-                          'Login',
+                          'Sign up',
                           style: TextStyle(
                               fontSize: 12,
                               color: Color.fromARGB(255, 4, 73, 129)),
                         ),
                         onTap: () {
-                          context.go('/login');
+                          context.go('/signup');
                         },
                       )
                     ],
@@ -118,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 20,
                   ),
                   AuthButton(
-                    buttonName: 'Sign up',
+                    buttonName: 'Login',
                     authFunction: signupUser,
                   ),
                   const SizedBox(

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mindr/auth/login/view/loginScreen.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,10 @@ class Mindr extends StatelessWidget {
     final router = GoRouter(
       routes: [
         GoRoute(path: '/', builder: (context, state) => const App()),
+        GoRoute(
+            path: '/login', builder: (context, state) => const LoginScreen()),
+        GoRoute(
+            path: '/signup', builder: (context, state) => const SignUpScreen()),
       ],
     );
 
