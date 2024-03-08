@@ -32,6 +32,7 @@ class LoginAuth extends ChangeNotifier {
           .signInWithEmailAndPassword(email: email, password: password);
       setUser(userCred);
       print(userCred);
+      setLoading(false);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         setError('No user found for that email.');
