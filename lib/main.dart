@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mindr/auth/auth_main.dart';
-import 'package:mindr/auth/login/view/loginScreen.dart';
 import 'package:mindr/auth/login/viewmodal/login_controller.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'firebase_options.dart';
@@ -11,7 +10,6 @@ import 'package:provider/provider.dart';
 
 //Screens
 import 'package:mindr/app/home_screen/view/home_screen.dart';
-import 'package:mindr/auth/signup/view/signup_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
