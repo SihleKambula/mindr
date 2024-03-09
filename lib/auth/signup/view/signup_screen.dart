@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'package:mindr/components/loading.dart';
 import 'package:provider/provider.dart';
@@ -74,7 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               controller: emailController,
                               hintText: 'Email',
                               obscureText: false,
-                              icon: const Icon(Icons.alternate_email_rounded),
+                              icon: const Icon(Iconsax.sms),
                             ),
                             const SizedBox(
                               height: 20,
@@ -83,7 +84,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               controller: passwordController,
                               hintText: 'password',
                               obscureText: true,
-                              icon: const Icon(Icons.lock_outline_rounded),
+                              icon: const Icon(Iconsax.lock),
                             ),
                             const SizedBox(
                               height: 20,
@@ -92,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               controller: confirmPasswordController,
                               hintText: 'confirm password',
                               obscureText: true,
-                              icon: const Icon(Icons.lock_clock_outlined),
+                              icon: const Icon(Iconsax.password_check),
                             ),
                             const SizedBox(
                               height: 8,

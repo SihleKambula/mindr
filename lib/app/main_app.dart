@@ -1,14 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class Main extends StatelessWidget {
+  const Main({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   Future<void> logout() async {
     await FirebaseAuth.instance.signOut();
   }
@@ -16,15 +11,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        ElevatedButton(
+      body: Center(
+        child: ElevatedButton(
           onPressed: () {
             logout();
             print('Out');
           },
           child: Text('Log out'),
         ),
-      ]),
+      ),
     );
   }
 }

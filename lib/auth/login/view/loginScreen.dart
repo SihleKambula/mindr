@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:mindr/auth/login/viewmodal/login_controller.dart';
 import 'package:mindr/components/loading.dart';
 import 'package:provider/provider.dart';
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               controller: emailController,
                               hintText: 'Email',
                               obscureText: false,
-                              icon: const Icon(Icons.alternate_email_rounded),
+                              icon: const Icon(Iconsax.sms),
                             ),
                             const SizedBox(
                               height: 20,
@@ -80,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               controller: passwordController,
                               hintText: 'password',
                               obscureText: true,
-                              icon: const Icon(Icons.lock_outline_rounded),
+                              icon: const Icon(Iconsax.lock),
                             ),
                             const SizedBox(
                               height: 8,

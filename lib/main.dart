@@ -2,14 +2,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mindr/auth/auth_main.dart';
-import 'package:mindr/auth/login/viewmodal/login_controller.dart';
-import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 
-//Screens
-import 'package:mindr/app/home_screen/view/home_screen.dart';
+//providers
+import 'package:mindr/auth/login/viewmodal/login_controller.dart';
+import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
+
+//screens
+import 'package:mindr/app/main_app.dart';
+import 'package:mindr/auth/auth_main.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -60,7 +62,7 @@ class App extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return const HomeScreen();
+          return const Main();
         } else {
           return const AuthMainScreen();
         }
