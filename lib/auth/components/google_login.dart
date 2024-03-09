@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class GoogleLogin extends StatelessWidget {
-  const GoogleLogin({super.key});
+  final dynamic continueWithGoogle;
+  const GoogleLogin({super.key, required this.continueWithGoogle});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('Siging up');
+        continueWithGoogle();
       },
       child: Container(
         padding: const EdgeInsets.all(20),

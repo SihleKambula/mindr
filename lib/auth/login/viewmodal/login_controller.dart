@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginAuth extends ChangeNotifier {
   bool _loading = false;
@@ -39,6 +40,34 @@ class LoginAuth extends ChangeNotifier {
       } else if (e.code == 'wrong-password') {
         setError('Wrong password provided for that user.');
       }
+      setLoading(false);
+    }
+  }
+
+  //continue with googl
+  Future<void> signInWithGoogle() async {
+    setLoading(true);
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      // Create a new credential
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      final userCred =
+          await FirebaseAuth.instance.signInWithCredential(credential);
+      setUser(userCred);
+      setLoading(false);
+    } catch (e) {
+      print(e);
       setLoading(false);
     }
   }

@@ -145,7 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            const GoogleLogin()
+                            GoogleLogin(
+                              continueWithGoogle:
+                                  Provider.of<LoginAuth>(context, listen: false)
+                                      .signInWithGoogle,
+                            )
                           ],
                         ),
                       ),

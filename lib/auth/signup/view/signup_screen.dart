@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           .signUpWithEmailAndPassword(
               emailController.text, passwordController.text);
     }
-    //todo return rejection to user
+    //TODO: return rejection to user
     print('passwords do not match');
   }
 
@@ -157,7 +157,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            const GoogleLogin()
+                            GoogleLogin(
+                                continueWithGoogle: Provider.of<SignUpAuth>(
+                                        context,
+                                        listen: false)
+                                    .signInWithGoogle)
                           ],
                         ),
                       ),
