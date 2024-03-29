@@ -50,9 +50,14 @@ class Mindr extends StatelessWidget {
         title: 'Mindr',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            useMaterial3: true,
-            primaryColor: const Color.fromARGB(255, 4, 73, 129),
-            fontFamily: 'Poppins'),
+          useMaterial3: true,
+          primaryColor: const Color.fromARGB(255, 4, 73, 129),
+          fontFamily: 'Poppins',
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+          ),
+        ),
         routerConfig: router,
       ),
     );

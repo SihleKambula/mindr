@@ -16,6 +16,12 @@ class _NoteScreenState extends State<NoteScreen> {
       appBar: AppBar(
         title: const Text('Mindr'),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Recording');
+        },
+        child: const Icon(Iconsax.microphone),
+      ),
       backgroundColor: Colors.grey[100],
       body: GridView.count(
         crossAxisCount: 2,
