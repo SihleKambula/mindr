@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class Onboarding extends StatefulWidget {
-  final dynamic saveData;
-  const Onboarding({super.key, required this.saveData});
+  const Onboarding({super.key});
 
   @override
   State<Onboarding> createState() => _OnboardingState();
@@ -12,7 +11,6 @@ class Onboarding extends StatefulWidget {
 class _OnboardingState extends State<Onboarding> {
 //Upon complete
   void _onIntroEnd(context) async {
-    widget.saveData();
     context.go('/wrapper');
   }
 
@@ -51,24 +49,24 @@ class _OnboardingState extends State<Onboarding> {
           skip: const Text('Skip'),
           pages: [
             PageViewModel(
-              title: 'Speech To Event',
+              title: 'Remember the important stuff',
               body:
                   'Press, Talk and voila! An event is created in your calendar',
-              image: _buildImage('calendar.png'),
+              image: _buildImage('calendar.gif'),
               decoration: pageDecoration,
             ),
             PageViewModel(
-              title: "Create notes from your voice",
+              title: "Shower thoughts?",
               body:
                   "Record your thoughts and ideas on the go and let us script it out for you.",
-              image: _buildImage('notes.png'),
+              image: _buildImage('notes.gif'),
               decoration: pageDecoration,
             ),
             PageViewModel(
-              title: "CRM for your life",
+              title: "Let Mindr help you",
               body:
                   "A central place to store important reminders that help your relationships grow",
-              image: _buildImage('reminder.png'),
+              image: _buildImage('reminder.gif'),
               decoration: pageDecoration,
             ),
           ],

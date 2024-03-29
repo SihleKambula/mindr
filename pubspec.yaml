@@ -33,9 +33,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/calendar.png
-    - assets/images/notes.png
-    - assets/images/reminder.png
+    - assets/images/calendar.gif
+    - assets/images/notes.gif
+    - assets/images/reminder.gif
     - assets/images/icons/google.png
 
   fonts:

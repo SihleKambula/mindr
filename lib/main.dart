@@ -13,6 +13,8 @@ import 'package:mindr/auth/signup/viewmodal/signup_controller.dart';
 import 'package:mindr/app/main_app.dart';
 import 'package:mindr/auth/auth_main.dart';
 
+import 'onboarding/view/onboarding.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
