@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:mindr/app/single_notes/view.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +34,10 @@ class Mindr extends StatelessWidget {
     final router = GoRouter(
       routes: [
         GoRoute(path: '/', builder: (context, state) => const App()),
+        GoRoute(
+            path: '/singleview/:id',
+            builder: (context, state) =>
+                SingleNotesView(id: state.pathParameters['id']!)),
       ],
     );
 
