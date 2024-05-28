@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mindr/app/notes/services.dart';
+import 'package:audio_waveforms/audio_waveforms.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
@@ -10,6 +12,47 @@ class NoteScreen extends StatefulWidget {
 }
 
 class _NoteScreenState extends State<NoteScreen> {
+  RecorderController controller = RecorderController();
+
+  Widget bottomSheet() => Container(
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(
+                  blurRadius: 2, blurStyle: BlurStyle.outer, color: Colors.grey)
+            ]),
+        child: SizedBox(
+            height: 300,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AudioWaveforms(
+                        size: Size(MediaQuery.of(context).size.width, 200.0),
+                        recorderController: controller,
+                        enableGesture: true,
+                        waveStyle: const WaveStyle(
+                          waveColor: Colors.blue,
+                          spacing: 8.0,
+                          extendWaveform: true,
+                          showMiddleLine: false,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            NoteServices().recordEventStop(controller);
+                            Navigator.pop(context);
+                          },
+                          icon: const Icon(Icons.mic_off))
+                    ]),
+              ),
+            )),
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +61,9 @@ class _NoteScreenState extends State<NoteScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Recording');
+          showBottomSheet(
+              context: context, builder: (context) => bottomSheet());
+          NoteServices().recordEvent(controller);
         },
         child: const Icon(Iconsax.microphone),
       ),
